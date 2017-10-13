@@ -1,29 +1,52 @@
 <template>
-  <div id="navbar">
-    <nav class="navbar navbar-toggleable-md navbar-light bg-success navbar-inverse">
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand" href="#">Vue (ab)use router</a>
+    <div id="navbar">
+        <b-navbar toggleable="md" type="dark" variant="info">
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                  <li class="nav-item" v-for="route in routes" :key="route.name">
-                      <router-link :to="route" class="nav-link" active-class="active">
-                          {{ route.name }}
-                      </router-link>
-                  </li>
-              </ul>
-          </div>
-      </nav>
-	</div>
+            <b-nav-toggle target="nav_collapse"></b-nav-toggle>
+
+            <b-navbar-brand href="#">NavBar</b-navbar-brand>
+
+            <b-collapse is-nav id="nav_collapse">
+
+                <b-nav is-nav-bar>
+                    <b-nav-item v-for="route in routes" :key="route.name" :to="route">{{ route.name }}</b-nav-item>
+                </b-nav>
+
+                <!-- Right aligned nav items -->
+                <b-nav is-nav-bar class="ml-auto">
+
+                    <b-nav-form>
+                        <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search" />
+                        <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+                    </b-nav-form>
+
+                    <b-nav-item-dropdown text="Lang" right>
+                        <b-dropdown-item href="#">EN</b-dropdown-item>
+                        <b-dropdown-item href="#">ES</b-dropdown-item>
+                        <b-dropdown-item href="#">RU</b-dropdown-item>
+                        <b-dropdown-item href="#">FA</b-dropdown-item>
+                    </b-nav-item-dropdown>
+
+                    <b-nav-item-dropdown right>
+                        <!-- Using button-content slot -->
+                        <template slot="button-content">
+                            <em>User</em>
+                        </template>
+                        <b-dropdown-item href="#">Profile</b-dropdown-item>
+                        <b-dropdown-item href="#">Signout</b-dropdown-item>
+                    </b-nav-item-dropdown>
+                </b-nav>
+            </b-collapse>
+        </b-navbar>
+    </div>
 </template>
+
 
 <script>
 export default {
-  name: 'Navbar',
-  computed: {
-        routes: function () {
+    name: 'Navbar',
+    computed: {
+        routes: function() {
             var routes = []
             for (var i in this.$router.options.routes) {
                 if (!this.$router.options.routes.hasOwnProperty(i)) {
@@ -36,6 +59,6 @@ export default {
             }
             return routes
         }
-  }
+    }
 }
 </script>
