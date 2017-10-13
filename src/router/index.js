@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import PatrimonioAnalisi from '@/components/PatrimonioAnalisi'
+import SimulazioneManuale from '@/components/SimulazioneManuale'
 import HomePage from '@/components/HomePage'
 
 Vue.use(Router)
@@ -9,9 +9,14 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/hello',
-      name: 'Hello',
-      component: HelloWorld
+      path: '/homepage',
+      name: 'Home Page',
+      component: HomePage
+    },
+    {
+      path: '/simulazionemanuale',
+      name: 'Simulazione Manuale',
+      component: SimulazioneManuale
     },
     {
       path: '/analisi',
@@ -19,13 +24,8 @@ export default new Router({
       component: PatrimonioAnalisi
     },
     {
-      path: '/homepage',
-      name: 'Home Page',
-      component: HomePage
-    },
-    {
       path: '*',
-      redirect: '/hello'
+      redirect: '/homepage'
     }
   ]
 })
