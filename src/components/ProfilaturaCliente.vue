@@ -4,6 +4,13 @@
     <b-container fluid>
       <b-row>
         <b-col>
+          <img src="../assets/dett_customer.png"/>
+          <div>{{anagrafica}}</div>
+          <div><b>NSG</b> {{nsg}}</div>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
           <div>Soglia di spesa</div>
           <div class="box">{{spesa}}</div>
         </b-col>
@@ -16,6 +23,18 @@
           <div class="box">{{lungoPeriodo}}</div>
         </b-col>
       </b-row>
+      <b-row>
+        <b-col>
+          <img src="../assets/man_body_circle.png"/>
+          <div>Propensione al rischio</div>
+          <div>{{rischio}}</div>
+        </b-col>
+        <b-col>
+          <img src="../assets/calendar.png"/>
+          <div>Data di scadenza questionario</div>
+          <div>{{dataScadenza}}</div>
+        </b-col>
+      </b-row>
     </b-container>
   </div>
 </template>
@@ -25,9 +44,13 @@ export default {
   name: 'ProfilaturaCliente',
   data() {
     return {
+      anagrafica: "-",
+      nsg: "-",
       spesa: "-",
       riserva: "-",
-      lungoPeriodo: "-"
+      lungoPeriodo: "-",
+      rischio: "-",
+      dataScadenza: "-"
     }
   }
 }

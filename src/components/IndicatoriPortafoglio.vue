@@ -1,12 +1,18 @@
 <template>
   <div id="indicatori-portafoglio">
     <h3>Indicatori Portafoglio Cliente</h3>
+    <line-chart></line-chart>
   </div>
 </template>
 
 <script>
+import LineChart from "@/components/charts/LineChart"
+
 export default {
-  name: 'IndicatoriPortafoglio'
+  name: 'IndicatoriPortafoglio',
+  components: {
+    LineChart
+  }
 }
 </script>
 
