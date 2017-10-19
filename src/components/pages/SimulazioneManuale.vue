@@ -1,12 +1,18 @@
 <template>
   <div>
     <h1>{{ msg }}</h1>
+    <tabella-simulazione></tabella-simulazione>
   </div>
 </template>
 
 <script>
+import TabellaSimulazione from '@/components/TabellaSimulazione.vue'
+
 export default {
   name: 'SimulazioneManuale',
+  components: {
+    TabellaSimulazione
+  },
   data () {
     return {
       msg: 'Questa è la simulazione manuale'
