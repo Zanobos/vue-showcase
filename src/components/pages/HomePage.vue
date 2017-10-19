@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import IndicatoriPortafoglio from "../components/IndicatoriPortafoglio.vue";
-import ProfilaturaCliente from "../components/ProfilaturaCliente.vue";
+import IndicatoriPortafoglio from "@/components/IndicatoriPortafoglio.vue";
+import ProfilaturaCliente from "@/components/ProfilaturaCliente.vue";
 
 export default {
   name: 'HomePage',

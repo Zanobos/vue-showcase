@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PatrimonioAnalisi from '@/components/PatrimonioAnalisi'
-import SimulazioneManuale from '@/components/SimulazioneManuale'
-import HomePage from '@/components/HomePage'
+import PatrimonioAnalisi from '@/components/pages/PatrimonioAnalisi'
+import SimulazioneManuale from '@/components/pages/SimulazioneManuale'
+import HomePage from '@/components/pages/HomePage'
 
 Vue.use(Router)
 
