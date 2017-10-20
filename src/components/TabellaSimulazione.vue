@@ -20,7 +20,7 @@
         </b-table>
 
         <div>
-            <strong>Totale CTV iniziale: {{totaleCtvIniziale}}, Totale CTV finale: {{totaleCtvFinale()}}</strong>
+            <strong>Totale CTV iniziale: {{totaleCtvIniziale.toFixed(2)}}, Totale CTV finale: {{totaleCtvFinale.toFixed(2)}}</strong>
         </div>
 
         <p>
@@ -37,26 +37,26 @@ const items = [
     {   codiceProdotto: 'IT3248822',
         descrizione: 'ENEL',
         rischio: '9.12',
-        ctvIniziale: '13259.14',
-        acquista: '',
-        vendi: '',
-        ctvFinale: ''
+        ctvIniziale: 13259.14,
+        acquista: null,
+        vendi: null,
+        ctvFinale: null
     },
     {   codiceProdotto: 'NL123999',
         descrizione: 'CED ATTIVA PIU',
         rischio: '4.5',
-        ctvIniziale: '20091.4',
-        acquista: '',
-        vendi: '',
-        ctvFinale: ''
+        ctvIniziale: 20091.62,
+        acquista: null,
+        vendi: null,
+        ctvFinale: null
     },
     {   codiceProdotto: 'XYZ234922',
         descrizione: 'ISP PROSPETTIVA',
         rischio: '1.2',
-        ctvIniziale: '150091.4',
-        acquista: '',
-        vendi: '',
-        ctvFinale: ''
+        ctvIniziale: 150091.4,
+        acquista: null,
+        vendi: null,
+        ctvFinale: null
     }
 ];
 
@@ -82,19 +82,19 @@ export default {
   },
   methods: {
         calcolaCtvFinale(value,key,item) {
-            item.ctvFinale = Number(item.ctvIniziale) + Number(item.acquista) - Number(item.vendi);
-            return item.ctvFinale;
-        },
-        totaleCtvFinale() {
-            return this.items.reduce(function(sum, item){
-                return Number(sum) + Number(item.ctvFinale); 
-            },0);
+            item.ctvFinale = (item.ctvIniziale + (Number(item.acquista) || 0) - (Number(item.vendi) || 0 ));
+            return item.ctvFinale.toFixed(2);
         }
   },
   computed: {
     totaleCtvIniziale: function() {
         return this.items.reduce(function(sum, item){
-            return Number(sum) + Number(item.ctvIniziale); 
+            return sum + item.ctvIniziale
+        },0);
+    },
+    totaleCtvFinale: function() {
+        return this.items.reduce(function(sum, item){
+                return (sum + (item.ctvFinale || 0)); 
         },0);
     }
   }
