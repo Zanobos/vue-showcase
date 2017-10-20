@@ -8,6 +8,7 @@
                 :sort-by.sync="sortBy"
                 :sort-desc.sync="sortDesc"
         >
+            <!-- Modifying input cells-->
             <template slot="acquista" slot-scope="row">
                 <b-form-input v-model="row.item.acquista"></b-form-input>
             </template>
@@ -15,7 +16,13 @@
             <template slot="vendi" slot-scope="row">
                 <b-form-input v-model="row.item.vendi"></b-form-input>
             </template>
+
         </b-table>
+
+        <div>
+            <strong>Totale CTV iniziale: {{totaleCtvIniziale}}, Totale CTV finale: {{totaleCtvFinale()}}</strong>
+        </div>
+
         <p>
             Sort By: {{ sortBy || 'n/a' }}, Direction: {{ sortDesc ? 'descending' : 'ascending' }}
         </p>
@@ -42,6 +49,14 @@ const items = [
         acquista: '',
         vendi: '',
         ctvFinale: ''
+    },
+    {   codiceProdotto: 'XYZ234922',
+        descrizione: 'ISP PROSPETTIVA',
+        rischio: '1.2',
+        ctvIniziale: '150091.4',
+        acquista: '',
+        vendi: '',
+        ctvFinale: ''
     }
 ];
 
@@ -62,13 +77,26 @@ export default {
         sortBy: null,
         sortDesc: false,
         filter: null
-         //https://bootstrap-vue.js.org/docs/components/table per vedere altri metodi utili, anche come lanciare un alert
+        //https://bootstrap-vue.js.org/docs/components/table per vedere altri metodi utili, anche come lanciare un alert
     }
   },
   methods: {
-      calcolaCtvFinale(value,key,item) {
-          return Number(item.ctvIniziale) + Number(item.acquista) - Number(item.vendi);
-      }
+        calcolaCtvFinale(value,key,item) {
+            item.ctvFinale = Number(item.ctvIniziale) + Number(item.acquista) - Number(item.vendi);
+            return item.ctvFinale;
+        },
+        totaleCtvFinale() {
+            return this.items.reduce(function(sum, item){
+                return Number(sum) + Number(item.ctvFinale); 
+            },0);
+        }
+  },
+  computed: {
+    totaleCtvIniziale: function() {
+        return this.items.reduce(function(sum, item){
+            return Number(sum) + Number(item.ctvIniziale); 
+        },0);
+    }
   }
 }
 </script>
