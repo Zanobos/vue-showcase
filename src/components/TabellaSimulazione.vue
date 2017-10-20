@@ -1,5 +1,7 @@
 <template>
     <div>
+        <!-- title -->
+        <h2>{{title}}</h2>
         <!-- Main table element -->
         <b-table bordered hover show-empty
                 :items="items"
@@ -17,11 +19,13 @@
                 <b-form-input v-model="row.item.vendi"></b-form-input>
             </template>
 
+            <!-- Waiting to resolve issue for bottom-row-->
+            <template slot="top-row" slot-scope="data">
+                <td v-for="field in data.fields" v-bind:key="field.label">
+                <strong>{{showBottomField(field)}}</strong>
+                </td>             
+            </template>
         </b-table>
-
-        <div>
-            <strong>Totale CTV iniziale: {{totaleCtvIniziale.toFixed(2)}}, Totale CTV finale: {{totaleCtvFinale.toFixed(2)}}</strong>
-        </div>
 
         <p>
             Sort By: {{ sortBy || 'n/a' }}, Direction: {{ sortDesc ? 'descending' : 'ascending' }}
@@ -65,6 +69,7 @@ export default {
   data() {
       return {
         items: items,
+        title: '',
         fields: {
             codiceProdotto:   { label: 'Codice Prodotto', sortable: true },
             descrizione:      { label: 'Descrizione', sortable: true },
@@ -84,6 +89,21 @@ export default {
         calcolaCtvFinale(value,key,item) {
             item.ctvFinale = (item.ctvIniziale + (Number(item.acquista) || 0) - (Number(item.vendi) || 0 ));
             return item.ctvFinale.toFixed(2);
+        },
+        showBottomField(item) {
+            if(item.key == "codiceProdotto")
+            {
+                return "TOTALE"
+            }
+            else if(item.key == "ctvIniziale")
+            {
+                return this.totaleCtvIniziale.toFixed(2);
+            }
+            else if(item.key == "ctvFinale")
+            {
+                return this.totaleCtvFinale.toFixed(2);
+            }
+            return "";
         }
   },
   computed: {
@@ -100,3 +120,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+h2 {
+  font-weight: normal;
+}
+thead{
+    background: #f3f3f3;
+}
+</style>
