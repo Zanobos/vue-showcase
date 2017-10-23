@@ -39,52 +39,24 @@
 <script>
 import currency from "@/components/filters/currency"
 
-const items = [
-    {   codiceProdotto: 'IT3248822',
-        descrizione: 'ENEL',
-        rischio: '9.12',
-        ctvIniziale: 13259.14,
-        acquista: null,
-        vendi: null,
-        ctvFinale: null
-    },
-    {   codiceProdotto: 'NL123999',
-        descrizione: 'CED ATTIVA PIU',
-        rischio: '4.5',
-        ctvIniziale: 20091.62,
-        acquista: null,
-        vendi: null,
-        ctvFinale: null
-    },
-    {   codiceProdotto: 'XYZ234922',
-        descrizione: 'ISP PROSPETTIVA',
-        rischio: '1.2',
-        ctvIniziale: 150091.4,
-        acquista: null,
-        vendi: null,
-        ctvFinale: null
-    }
-];
-
 export default {
-  name: "TabellaSimulazione",
-  data() {
-      return {
-        items: items,
-        title: '',
-        fields: {
-            codiceProdotto:   { label: 'Codice Prodotto', sortable: true, thClass:'table-header', class:['text-left', 'ws-nowrap', 'table-border'] },
-            descrizione:      { label: 'Descrizione', sortable: true, thClass:'table-header',  class:['text-left', 'ws-nowrap', 'table-border']},
-            rischio:          { label: 'Rischio', sortable: true, thClass:'table-header', class: ['table-border']},
-            ctvIniziale:      { label: 'CTV Iniziale', sortable: true, formatter: 'formatCtv', thClass:'table-header', tdClass:['text-right'], class: ['ws-nowrap','table-border']},
-            acquista:         { label: 'Acquista', thClass:'table-header', class: ['table-border'] },
-            vendi:            { label: 'Vendi', thClass:'table-header', class: ['table-border'] },
-            ctvFinale:        { label: 'CTV Finale', formatter: 'calcolaCtvFinale', thClass:'table-header', tdClass:['text-right'], class: ['ws-nowrap','table-border']}
-        },
-        sortBy: null,
-        sortDesc: false,
-        filter: null
-        //https://bootstrap-vue.js.org/docs/components/table per vedere altri metodi utili, anche come lanciare un alert
+    name: "TabellaSimulazione",
+    props: ['items', 'title'],
+    data() {
+        return {
+            fields: {
+                codiceProdotto:   { label: 'Codice Prodotto', sortable: true, thClass:'table-header', class:['text-left', 'ws-nowrap', 'table-border'] },
+                descrizione:      { label: 'Descrizione', sortable: true, thClass:'table-header',  class:['text-left', 'ws-nowrap', 'table-border']},
+                rischio:          { label: 'Rischio', sortable: true, thClass:'table-header', class: ['table-border']},
+                ctvIniziale:      { label: 'CTV Iniziale', sortable: true, formatter: 'formatCtv', thClass:'table-header', tdClass:['text-right'], class: ['ws-nowrap','table-border']},
+                acquista:         { label: 'Acquista', thClass:'table-header', class: ['table-border'] },
+                vendi:            { label: 'Vendi', thClass:'table-header', class: ['table-border'] },
+                ctvFinale:        { label: 'CTV Finale', formatter: 'calcolaCtvFinale', thClass:'table-header', tdClass:['text-right'], class: ['ws-nowrap','table-border']}
+            },
+            sortBy: null,
+            sortDesc: false,
+            filter: null
+            //https://bootstrap-vue.js.org/docs/components/table per vedere altri metodi utili, anche come lanciare un alert
     }
   },
   methods: {
