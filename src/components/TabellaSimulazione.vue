@@ -3,7 +3,7 @@
         <!-- title -->
         <h2>{{title}}</h2>
         <!-- Main table element -->
-        <b-table bordered hover show-empty
+        <b-table hover show-empty
                 :items="items"
                 :fields="fields"
                 :filter="filter"
@@ -73,13 +73,13 @@ export default {
         items: items,
         title: '',
         fields: {
-            codiceProdotto:   { label: 'Codice Prodotto', sortable: true, thClass:'table-header', class:['text-left', 'ws-nowrap'] },
-            descrizione:      { label: 'Descrizione', sortable: true, thClass:'table-header',  class:['text-left', 'ws-nowrap']},
-            rischio:          { label: 'Rischio', sortable: true, thClass:'table-header'},
-            ctvIniziale:      { label: 'CTV Iniziale', sortable: true, formatter: 'formatCtv', thClass:'table-header', tdClass:['text-right'], class: ['ws-nowrap']},
-            acquista:         { label: 'Acquista', thClass:'table-header' },
-            vendi:            { label: 'Vendi', thClass:'table-header' },
-            ctvFinale:        { label: 'CTV Finale', formatter: 'calcolaCtvFinale', thClass:'table-header', tdClass:['text-right'], class: ['ws-nowrap']}
+            codiceProdotto:   { label: 'Codice Prodotto', sortable: true, thClass:'table-header', class:['text-left', 'ws-nowrap', 'table-border'] },
+            descrizione:      { label: 'Descrizione', sortable: true, thClass:'table-header',  class:['text-left', 'ws-nowrap', 'table-border']},
+            rischio:          { label: 'Rischio', sortable: true, thClass:'table-header', class: ['table-border']},
+            ctvIniziale:      { label: 'CTV Iniziale', sortable: true, formatter: 'formatCtv', thClass:'table-header', tdClass:['text-right'], class: ['ws-nowrap','table-border']},
+            acquista:         { label: 'Acquista', thClass:'table-header', class: ['table-border'] },
+            vendi:            { label: 'Vendi', thClass:'table-header', class: ['table-border'] },
+            ctvFinale:        { label: 'CTV Finale', formatter: 'calcolaCtvFinale', thClass:'table-header', tdClass:['text-right'], class: ['ws-nowrap','table-border']}
         },
         sortBy: null,
         sortDesc: false,
@@ -102,11 +102,11 @@ export default {
             }
             else if(item.key == "ctvIniziale")
             {
-                return this.totaleCtvIniziale.toFixed(2);
+                return currency(this.totaleCtvIniziale);
             }
             else if(item.key == "ctvFinale")
             {
-                return this.totaleCtvFinale.toFixed(2);
+                return currency(this.totaleCtvFinale);
             }
             return "";
         }
@@ -127,12 +127,14 @@ export default {
 </script>
 
 <style>
-.table-header{
+.table-header {
     background: #f3f3f3;
-    border: 1px solid #ccc;
 }
 .table-input {
     border-radius: 0;
+}
+.table-border {
+    border: 1px solid #ccc;
 }
 .ws-nowrap {
     white-space: nowrap;
