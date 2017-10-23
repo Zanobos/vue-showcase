@@ -12,11 +12,11 @@
         >
             <!-- Modifying input cells-->
             <template slot="acquista" slot-scope="row">
-                <b-form-input v-model="row.item.acquista"></b-form-input>
+                <b-form-input v-model="row.item.acquista" class="table-input"></b-form-input>
             </template>
 
             <template slot="vendi" slot-scope="row">
-                <b-form-input v-model="row.item.vendi"></b-form-input>
+                <b-form-input v-model="row.item.vendi" class="table-input"></b-form-input>
             </template>
 
             <!-- Waiting to resolve issue for bottom-row-->
@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import currency from "@/components/filters/currency"
+
 const items = [
     {   codiceProdotto: 'IT3248822',
         descrizione: 'ENEL',
@@ -71,13 +73,13 @@ export default {
         items: items,
         title: '',
         fields: {
-            codiceProdotto:   { label: 'Codice Prodotto', sortable: true },
-            descrizione:      { label: 'Descrizione', sortable: true },
-            rischio:          { label: 'Rischio', sortable: true},
-            ctvIniziale:      { label: 'CTV Iniziale', sortable: true },
-            acquista:         { label: 'Acquista' },
-            vendi:            { label: 'Vendi' },
-            ctvFinale:        { label: 'CTV Finale', formatter: 'calcolaCtvFinale'}
+            codiceProdotto:   { label: 'Codice Prodotto', sortable: true, thClass:'table-header', class:['text-left', 'ws-nowrap'] },
+            descrizione:      { label: 'Descrizione', sortable: true, thClass:'table-header',  class:['text-left', 'ws-nowrap']},
+            rischio:          { label: 'Rischio', sortable: true, thClass:'table-header'},
+            ctvIniziale:      { label: 'CTV Iniziale', sortable: true, formatter: 'formatCtv', thClass:'table-header', tdClass:['text-right'], class: ['ws-nowrap']},
+            acquista:         { label: 'Acquista', thClass:'table-header' },
+            vendi:            { label: 'Vendi', thClass:'table-header' },
+            ctvFinale:        { label: 'CTV Finale', formatter: 'calcolaCtvFinale', thClass:'table-header', tdClass:['text-right'], class: ['ws-nowrap']}
         },
         sortBy: null,
         sortDesc: false,
@@ -86,9 +88,12 @@ export default {
     }
   },
   methods: {
+        formatCtv(value, key, item) {
+            return currency(value);
+        },
         calcolaCtvFinale(value,key,item) {
             item.ctvFinale = (item.ctvIniziale + (Number(item.acquista) || 0) - (Number(item.vendi) || 0 ));
-            return item.ctvFinale.toFixed(2);
+            return currency(item.ctvFinale);
         },
         showBottomField(item) {
             if(item.key == "codiceProdotto")
@@ -121,11 +126,15 @@ export default {
 }
 </script>
 
-<style scoped>
-h2 {
-  font-weight: normal;
-}
-thead{
+<style>
+.table-header{
     background: #f3f3f3;
+    border: 1px solid #ccc;
+}
+.table-input {
+    border-radius: 0;
+}
+.ws-nowrap {
+    white-space: nowrap;
 }
 </style>
