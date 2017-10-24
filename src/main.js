@@ -8,6 +8,8 @@ import router from './router'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
+import currency from '@/components/filters/currency.js'
+
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 
@@ -16,5 +18,7 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App }
+  components: { App },
 })
+
+Vue.filter('currency', currency);

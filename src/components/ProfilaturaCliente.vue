@@ -1,38 +1,53 @@
 <template>
   <div id="profilatura-cliente">
-    <h3>Profilatura Cliente</h3>
     <b-container fluid>
       <b-row>
         <b-col>
+          <h3>Profilo Cliente</h3>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          TODO ACCORDION
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <div><strong>Livello di Conoscenza ed Esperienza</strong></div>
+          <div>{{cliente.livelloEsperienza}}</div>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
           <img src="../assets/dett_customer.png"/>
-          <div>{{anagrafica}}</div>
-          <div><b>NSG</b> {{nsg}}</div>
+          <div>{{cliente.anagrafica}}</div>
+          <div><strong>NSG</strong> {{cliente.nsg}}</div>
         </b-col>
       </b-row>
       <b-row>
         <b-col>
           <div>Soglia di spesa</div>
-          <div class="box">{{spesa}}</div>
+          <div class="box">{{cliente.spesa | currency }}</div>
         </b-col>
         <b-col>
           <div>Obiettivo di riserva</div>
-          <div class="box">{{riserva}}</div>
+          <div class="box">{{cliente.riserva | currency }}</div>
         </b-col>
         <b-col>
           <div>Importo massimo di lungo periodo</div>
-          <div class="box">{{lungoPeriodo}}</div>
+          <div class="box">{{cliente.lungoPeriodo | currency }}</div>
         </b-col>
       </b-row>
       <b-row>
         <b-col>
           <img src="../assets/man_body_circle.png"/>
           <div>Propensione al rischio</div>
-          <div>{{rischio}}</div>
+          <div><strong>{{cliente.rischio.toUpperCase()}}</strong></div>
         </b-col>
         <b-col>
           <img src="../assets/calendar.png"/>
           <div>Data di scadenza questionario</div>
-          <div>{{dataScadenza}}</div>
+          <div><strong>{{cliente.dataScadenza}}</strong></div>
         </b-col>
       </b-row>
     </b-container>
@@ -42,17 +57,8 @@
 <script>
 export default {
   name: 'ProfilaturaCliente',
-  data() {
-    return {
-      anagrafica: "-",
-      nsg: "-",
-      spesa: "-",
-      riserva: "-",
-      lungoPeriodo: "-",
-      rischio: "-",
-      dataScadenza: "-"
-    }
-  }
+  props: ['cliente']
+  
 }
 </script>
 
