@@ -6,25 +6,25 @@
           <h3>Profilo Cliente</h3>
         </b-col>
       </b-row>
-      <b-row>
+      <b-row class="mb-3">
         <b-col>
           TODO ACCORDION
         </b-col>
       </b-row>
-      <b-row>
+      <b-row class="mb-3">
         <b-col>
           <div><strong>Livello di Conoscenza ed Esperienza</strong></div>
           <div>{{cliente.livelloEsperienza}}</div>
         </b-col>
       </b-row>
-      <b-row>
+      <b-row class="mb-3">
         <b-col>
           <img src="../assets/dett_customer.png"/>
           <div>{{cliente.anagrafica}}</div>
           <div><strong>NSG</strong> {{cliente.nsg}}</div>
         </b-col>
       </b-row>
-      <b-row>
+      <b-row class="mb-3">
         <b-col>
           <div>Soglia di spesa</div>
           <div class="box">{{cliente.spesa | currency }}</div>
@@ -38,7 +38,7 @@
           <div class="box">{{cliente.lungoPeriodo | currency }}</div>
         </b-col>
       </b-row>
-      <b-row>
+      <b-row class="mb-3">
         <b-col>
           <img src="../assets/man_body_circle.png"/>
           <div>Propensione al rischio</div>

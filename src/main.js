@@ -13,12 +13,13 @@ import currency from '@/components/filters/currency.js'
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 
+Vue.filter('currency',currency);
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: { App },
+  components: { App }
 })
 
-Vue.filter('currency', currency);
