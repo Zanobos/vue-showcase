@@ -1,17 +1,16 @@
 <template>
-  <div>
-    <h1>{{ msg }}</h1>
-    <tabella-simulazione 
-          :items="posizioniRiserva" 
-          :title="titleRiserva">         
-    </tabella-simulazione>
+    <div>
+        <h1>{{ msg }}</h1>
+        <tabella-simulazione 
+                :items="posizioniRiserva" 
+                :title="titleRiserva">         
+        </tabella-simulazione>
 
-    <tabella-simulazione 
-          :items="posizioniInvestimento" 
-          :title="titleInvestimento">         
-    </tabella-simulazione>
-
-  </div>
+        <tabella-simulazione 
+                :items="posizioniInvestimento" 
+                :title="titleInvestimento">         
+        </tabella-simulazione>
+    </div>
 </template>
 
 <script>
@@ -64,25 +63,26 @@ const posizioniInvestimento = [
 ];
 
 export default {
-  name: 'SimulazioneManuale',
-  components: {
-    TabellaSimulazione
-  },
-  data () {
-    return {
-      posizioniRiserva: posizioniRiserva,
-      posizioniInvestimento: posizioniInvestimento,
-      titleInvestimento: "INVESTIMENTO",
-      titleRiserva: "Riserva",
-      msg: 'Questa è la simulazione manuale'
+    name: 'SimulazioneManuale',
+    components: {
+        TabellaSimulazione
+    },
+    data () {
+        return {
+            posizioniRiserva: posizioniRiserva,
+            posizioniInvestimento: posizioniInvestimento,
+            titleInvestimento: "INVESTIMENTO",
+            titleRiserva: "Riserva",
+            msg: 'Questa è la simulazione manuale'
+        }
     }
-  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1, h2 {
-  font-weight: normal;
+    font-weight: normal;
 }
 </style>
+                                                                                                                                                          

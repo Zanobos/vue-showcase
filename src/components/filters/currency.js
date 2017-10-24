@@ -16,7 +16,7 @@ function currency (value, currency = '€' , decimals = 2, decimalSeparator = ',
       : ''
     var sign = value < 0 ? '-' : ''
     return sign + head +
-      _int.slice(i).replace(digitsRE, '$1,') +
+      _int.slice(i).replace(digitsRE, '$1' + intSeparator) +
       _float + symbolSpace + currency
   }
   

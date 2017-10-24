@@ -6,7 +6,6 @@
         <b-table hover show-empty
                 :items="items"
                 :fields="fields"
-                :filter="filter"
                 :sort-by.sync="sortBy"
                 :sort-desc.sync="sortDesc"
         >
@@ -54,12 +53,11 @@ export default {
                 ctvFinale:        { label: 'CTV Finale', formatter: 'calcolaCtvFinale', thClass:'table-header', tdClass:['text-right'], class: ['ws-nowrap','table-border']}
             },
             sortBy: null,
-            sortDesc: false,
-            filter: null
+            sortDesc: false
             //https://bootstrap-vue.js.org/docs/components/table per vedere altri metodi utili, anche come lanciare un alert
-    }
-  },
-  methods: {
+        }
+    },
+    methods: {
         formatCtv(value, key, item) {
             return currency(value);
         },
@@ -82,19 +80,19 @@ export default {
             }
             return "";
         }
-  },
-  computed: {
-    totaleCtvIniziale: function() {
-        return this.items.reduce(function(sum, item){
-            return sum + item.ctvIniziale
-        },0);
     },
-    totaleCtvFinale: function() {
-        return this.items.reduce(function(sum, item){
-                return (sum + (item.ctvFinale || 0)); 
-        },0);
+    computed: {
+        totaleCtvIniziale: function() {
+            return this.items.reduce(function(sum, item){
+                return sum + item.ctvIniziale
+            },0);
+        },
+        totaleCtvFinale: function() {
+            return this.items.reduce(function(sum, item){
+                    return (sum + (item.ctvFinale || 0)); 
+            },0);
+        }
     }
-  }
 }
 </script>
 
