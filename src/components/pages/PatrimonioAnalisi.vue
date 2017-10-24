@@ -1,15 +1,16 @@
 <template>
     <div>
         <h1>{{ msg }}</h1>
-        <tabella-analisi
-            :items="posizioni">
-        </tabella-analisi>
+        <accordion-tabella-analisi
+            :items="posizioni"
+            :title="title">
+        </accordion-tabella-analisi>
 
     </div>
 </template>
 
 <script>
-import TabellaAnalisi from '@/components/TabellaAnalisi.vue'
+import AccordionTabellaAnalisi from '@/components/AccordionTabellaAnalisi.vue'
 
 const posizioni = [
     {
@@ -37,12 +38,13 @@ const posizioni = [
 export default {
     name: 'PatrimonioAnalisi',
     components: {
-        TabellaAnalisi
+        AccordionTabellaAnalisi
     },
     data () {
         return {
             msg: 'Questa è la pagina di analisi patrimonio',
-            posizioni: posizioni
+            posizioni: posizioni,
+            title: 'Obbligazionario'
         }
     }
 }
