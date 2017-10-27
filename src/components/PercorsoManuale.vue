@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>{{ msg }}</h1>
         <tabella-simulazione 
                 :items="posizioniRiserva" 
                 :title="titleRiserva">         
@@ -62,8 +61,10 @@ const posizioniInvestimento = [
     }
 ];
 
+
+
 export default {
-    name: 'SimulazioneManuale',
+    name: 'PercorsoManuale',
     components: {
         TabellaSimulazione
     },
@@ -71,18 +72,11 @@ export default {
         return {
             posizioniRiserva: posizioniRiserva,
             posizioniInvestimento: posizioniInvestimento,
-            titleInvestimento: "INVESTIMENTO",
-            titleRiserva: "Riserva",
-            msg: 'Questa è la simulazione manuale'
+            titleInvestimento: "Investimento",
+            titleRiserva: "Riserva"
         }
     }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-    font-weight: normal;
-}
-</style>
                                                                                                                                                           
