@@ -1,5 +1,8 @@
 <template>
 <div>
+<!--<schart :canvasId="canvasId" :type="type" :width="width"
+    :height="height" :data="data" :options="options"></schart>-->
+    <donut-analisi-patrimonio :donutAnalisiPatrimonio="donutAnalisiPatrimonio" class="mt-3"/>
 
     <accordion-tabella-analisi
          :items="posizioniMonetario"
@@ -28,6 +31,20 @@
 
 <script>
 import AccordionTabellaAnalisi from '@/components/AccordionTabellaAnalisi.vue'
+import DonutAnalisiPatrimonio from '@/components/DonutAnalisiPatrimonio.vue'
+
+
+const donutAnalisiPatrimonio = {
+     labels: ['ALTRO', 'MONETARIO', 'OBBLIGAZIONARIO', 'AZIONARIO'],
+     datasets: [
+         {
+            
+            backgroundColor: ['#050402', '#800000', '#228B22', '#CD5700'],
+            data: [7.12, 14.07, 49.39, 29.42]
+
+          }
+        ]
+};
 
 const posizioniObligazionario = [
     {
@@ -106,10 +123,14 @@ const posizioniMonetario = [
 export default {
      name: 'TotalePortafoglio',
     components: {
+        DonutAnalisiPatrimonio,
         AccordionTabellaAnalisi
+        
+       // Schart
     },
     data () {
         return {
+            donutAnalisiPatrimonio: donutAnalisiPatrimonio,
             posizioniMonetario: posizioniMonetario,
             titleM: 'Monetario',
             posizioniObligazionario: posizioniObligazionario,
@@ -120,7 +141,6 @@ export default {
             titleAltro:'Altro'
         }
     },
-
 }
 </script>
 
