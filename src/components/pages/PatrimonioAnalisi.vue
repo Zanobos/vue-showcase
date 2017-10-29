@@ -1,52 +1,51 @@
 <template>
-    <div>
-        <h1>{{ msg }}</h1>
-        <accordion-tabella-analisi
-            :items="posizioni"
-            :title="title">
-        </accordion-tabella-analisi>
+<div>
+   <h1>{{ msg }}</h1>
+        <b-nav justified pills class="mt-3">
+            <b-nav-item 
+                v-for="subRoute in subRoutes" :key="subRoute.name" :to="subRoute" 
+            >
+            {{ subRoute.name }}
+            </b-nav-item>
+            
+        </b-nav>
 
-    </div>
+        <router-view class="mt-3"/>
+    
+ </div>
 </template>
 
 <script>
-import AccordionTabellaAnalisi from '@/components/AccordionTabellaAnalisi.vue'
-
-const posizioni = [
-    {
-        descrizione: 'GOVERNATIVO ITALIA',
-        controvalore: 45000.0,
-        percentuale: 45.0
-    },
-    {
-        descrizione: 'CORPORATE INVESTMENT GRADE',
-        controvalore: 5000.0,
-        percentuale: 5.0
-    },
-    {
-        descrizione: 'CORPORATE HIGH YIELD',
-        controvalore: 30000.0,
-        percentuale: 30.0
-    },
-    {
-        descrizione: 'GOVERNATIVO USA',
-        controvalore: 20000.0,
-        percentuale: 20.0
-    }
-
-];
 export default {
     name: 'PatrimonioAnalisi',
-    components: {
-        AccordionTabellaAnalisi
-    },
     data () {
         return {
-            msg: 'Questa è la pagina di analisi patrimonio',
-            posizioni: posizioni,
-            title: 'Obbligazionario'
+            msg: 'Analisi patrimonio'             
+        }
+    },
+        computed: {
+        subRoutes: function() {
+            var subRoutes = []
+            for (var i in this.$router.options.routes) {
+
+                if (!this.$router.options.routes.hasOwnProperty(i)) {
+                    continue
+                }
+                var route = this.$router.options.routes[i]
+                if(route.name == 'Analisi Patrimonio') {
+                    for(var j in route.children){
+                        var subRoute = route.children[j]
+                        if (subRoute.hasOwnProperty('name')) {
+                            subRoutes.push(subRoute)
+                        }
+                    }
+                }
+            }
+            return subRoutes
         }
     }
+
+
 }
 </script>
 
