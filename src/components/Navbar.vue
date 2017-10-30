@@ -9,7 +9,7 @@
             <b-collapse is-nav id="nav_collapse">
 
                 <b-nav is-nav-bar>
-                    <b-nav-item v-for="route in routes" :key="route.name" :to="route">{{ route.name }}</b-nav-item>
+                    <b-nav-item v-for="route in routes" :key="route.name" :to="route">{{ route.label }}</b-nav-item>
                 </b-nav>
 
                 <!-- Right aligned nav items -->
@@ -48,7 +48,7 @@ export default {
                     continue
                 }
                 var route = this.$router.options.routes[i]
-                if (route.hasOwnProperty('name')) {
+                if (route.hasOwnProperty('label')) {
                     routes.push(route)
                 }
             }

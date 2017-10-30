@@ -16,43 +16,53 @@ export default new Router({
         {
             path: '/homepage',
             name: 'Home Page',
+            label: 'Home Page',
             component: HomePage
         },
         {
             path: '/simulazione',
-            name: 'Simulazione',
+            label: 'Simulazione',
             component: Simulazione,
             children: [
                 {   
                     path: 'manuale',
                     name: 'Percorso Manuale',
+                    label: 'Percorso Manuale',
                     component: PercorsoManuale
                 },
                 {
                     path: 'guidato',
                     name: 'Percorso Guidato',
+                    label: 'Percorso Guidato',
                     component: WIP
-                }
+                },
+                {   
+                    path: '',
+                    redirect: 'manuale'
+                },
             ]
         },
         {
             path: '/analisi',
-            name: 'Analisi Patrimonio',
+            label: 'Analisi Patrimonio',
             component: PatrimonioAnalisi,
             children: [
                 {   
                     path: 'totalePortafoglio',
                     name: 'TOTALE PORTAFOGLIO',
+                    label: 'TOTALE PORTAFOGLIO',
                     component: TotalePortafoglio,
                     children: [
                         {
                             path: 'assetClass',
                             name: 'ASSET CLASS',
+                            label: 'ASSET CLASS',
                             component: WIP
                         },
                         {
                             path: 'valuta',
                             name: 'VALUTA',
+                            label: 'VALUTA',
                             component: WIP
                         }
                     ]
@@ -60,22 +70,30 @@ export default new Router({
                 {
                     path: 'assetClassAzionario',
                     name: 'ASSET CLASS AZIONARIO',
+                    label: 'ASSET CLASS AZIONARIO',
                     component: WIP
                 },
                 {
                     path: 'obbligazioni',
                     name: 'OBBLIGAZIONI',
+                    label: 'OBBLIGAZIONI',
                     component: WIP
                 },
                 {
                     path: 'certificates',
                     name: 'CERTIFICATES',
+                    label: 'CERTIFICATES',
                     component: WIP
                 },
                 {
                     path: 'livelloProtezione',
                     name: 'LIVELLO DI PROTEZIONE',
+                    label: 'LIVELLO DI PROTEZIONE',
                     component: WIP
+                },
+                {
+                    path: '',
+                    redirect: 'totalePortafoglio'
                 }
 
             ]

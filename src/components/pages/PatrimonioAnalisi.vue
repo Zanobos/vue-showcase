@@ -5,7 +5,7 @@
             <b-nav-item 
                 v-for="subRoute in subRoutes" :key="subRoute.name" :to="subRoute" 
             >
-            {{ subRoute.name }}
+            {{ subRoute.label }}
             </b-nav-item>
             
         </b-nav>
@@ -32,10 +32,10 @@ export default {
                     continue
                 }
                 var route = this.$router.options.routes[i]
-                if(route.name == 'Analisi Patrimonio') {
+                if(route.label == 'Analisi Patrimonio') {
                     for(var j in route.children){
                         var subRoute = route.children[j]
-                        if (subRoute.hasOwnProperty('name')) {
+                        if (subRoute.hasOwnProperty('label')) {
                             subRoutes.push(subRoute)
                         }
                     }
