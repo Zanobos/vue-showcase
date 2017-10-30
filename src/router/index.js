@@ -5,7 +5,7 @@ import Simulazione from '@/components/pages/Simulazione'
 import HomePage from '@/components/pages/HomePage'
 
 import PercorsoManuale from '@/components/PercorsoManuale'
-import PercorsoGuidato from '@/components/PercorsoGuidato'
+import WIP from '@/components/WIP'
 import TotalePortafoglio from '@/components/TotalePortafoglio'
 
 
@@ -31,7 +31,7 @@ export default new Router({
                 {
                     path: 'guidato',
                     name: 'Percorso Guidato',
-                    component: PercorsoGuidato
+                    component: WIP
                 }
             ]
         },
@@ -48,34 +48,34 @@ export default new Router({
                         {
                             path: 'assetClass',
                             name: 'ASSET CLASS',
-                            /*component: PatrimonioAnalisi*/
+                            component: WIP
                         },
                         {
                             path: 'valuta',
                             name: 'VALUTA',
-                            /*component: PatrimonioAnalisi*/
+                            component: WIP
                         }
                     ]
                 },
                 {
                     path: 'assetClassAzionario',
                     name: 'ASSET CLASS AZIONARIO',
-                    /*component: PatrimonioAnalisi*/
+                    component: WIP
                 },
                 {
                     path: 'obbligazioni',
                     name: 'OBBLIGAZIONI',
-                    /*component: PatrimonioAnalisi*/
+                    component: WIP
                 },
                 {
                     path: 'certificates',
                     name: 'CERTIFICATES',
-                    /*component: PatrimonioAnalisi*/
+                    component: WIP
                 },
                 {
                     path: 'livelloProtezione',
                     name: 'LIVELLO DI PROTEZIONE',
-                    /*component: PatrimonioAnalisi*/
+                    component: WIP
                 }
 
             ]
