@@ -8,12 +8,12 @@
 
             <b-collapse is-nav id="nav_collapse">
 
-                <b-nav is-nav-bar>
+                <b-navbar-nav>
                     <b-nav-item v-for="route in routes" :key="route.name" :to="route">{{ route.label }}</b-nav-item>
-                </b-nav>
+                </b-navbar-nav>
 
                 <!-- Right aligned nav items -->
-                <b-nav is-nav-bar class="ml-auto">
+                <b-navbar-nav class="ml-auto">
                     
                     <b-nav-item-dropdown text="Lang" right>
                         <b-dropdown-item href="#">EN</b-dropdown-item>
@@ -30,7 +30,7 @@
                         <b-dropdown-item href="#">Profile</b-dropdown-item>
                         <b-dropdown-item href="#">Signout</b-dropdown-item>
                     </b-nav-item-dropdown>
-                </b-nav>
+                </b-navbar-nav>
             </b-collapse>
         </b-navbar>
     </div>

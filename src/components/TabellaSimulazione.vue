@@ -19,7 +19,7 @@
             </template>
 
             <!-- Waiting to resolve issue for bottom-row-->
-            <template slot="top-row" slot-scope="data">
+            <template slot="bottom-row" slot-scope="data">
                 <td v-for="field in data.fields" v-bind:key="field.label">
                 <strong>{{showBottomField(field)}}</strong>
                 </td>             
