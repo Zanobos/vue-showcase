@@ -1,36 +1,13 @@
 <template>
     <div>
         <indicatore-evoluzione-portafoglio :evoluzionePortafoglio="evoluzionePortafoglio" class="mt-3"/>
-        <profilatura-cliente :cliente="cliente" class="mt-3"/>
+        <profilatura-cliente :cliente="patrimonio" class="mt-3"/>
     </div>
 </template>
 
 <script>
 import IndicatoreEvoluzionePortafoglio from "@/components/IndicatoreEvoluzionePortafoglio.vue";
 import ProfilaturaCliente from "@/components/ProfilaturaCliente.vue";
-
-const cliente= {
-    anagrafica: "Mario Rossi e Simone Verdi",
-    nsg: "38659947224",
-    livelloEsperienza: 'ESPERIENZA MEDIO BASSA',
-    spesa: 1500,
-    riserva: 15000,
-    lungoPeriodo: 20000,
-    rischio: 'moderato',
-    dataScadenza: '11.05.2016',
-    cointestatari: [
-        {
-            nsg: '11129994555',
-            anagrafica: 'Mario Rossi',
-            cf: 'RSSMRA85B01L378W'
-        },
-        {
-            nsg: '66660035555',
-            anagrafica: 'Simone Verdi',
-            cf: 'VRDSMN78C12L378W'
-        }
-    ]
-};
 
 const evoluzionePortafoglio= {
     //Data to be represented on x-axis
@@ -56,9 +33,13 @@ export default {
     },
     data () {
         return {
-            cliente: cliente,
             evoluzionePortafoglio: evoluzionePortafoglio
         }
+    },
+    computed: {
+        patrimonio() {
+            return this.$store.getters.patrimonioSelezionato;
+        }  
     }
 }
 </script>

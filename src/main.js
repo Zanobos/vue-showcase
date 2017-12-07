@@ -4,6 +4,7 @@ import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App'
 import router from './router'
+import store from './store'
 
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -17,9 +18,14 @@ Vue.filter('currency',currency);
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
+    el: '#app',
+    store,
+    router,
+    template: '<App/>',
+    components: { App },
+    created: function() {
+        //carico i patrimoni da un servizio remoto
+        store.dispatch('fetchPatrimoni');
+    }
 })
 
