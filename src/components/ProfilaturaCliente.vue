@@ -91,6 +91,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#carousel * {
+    outline: none;
+}
+
 .box {
     background: #f3f3f3;
     border: 1px solid #ccc;
