@@ -11,7 +11,8 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "bootstrap-vue": "^1.0.0-beta.9",
+    "bootstrap": "^4.0.0-beta.2",
+    "bootstrap-vue": "^1.3.0",
     "chart.js": "^2.7.0",
     "vue": "^2.5.2",
     "vue-chartjs": "^3.0.0",
