@@ -13,6 +13,9 @@ export default new Vuex.Store({
     mutations: {
         fetchPatrimoni(state, payload) {
             state.patrimoni = payload;
+        },
+        cambiaPatrimonio(state, payload){
+            state.nsgSelezionato = payload;
         }
     },
     getters: {

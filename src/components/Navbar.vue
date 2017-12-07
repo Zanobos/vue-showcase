@@ -20,8 +20,7 @@
                         <template slot="button-content">
                             <em>User</em>
                         </template>
-                        <b-dropdown-item href="#">Profile</b-dropdown-item>
-                        <b-dropdown-item href="#">Signout</b-dropdown-item>
+                        <b-dropdown-item v-for="patrimonio in patrimoni" :key="patrimonio.nsg" href="#">{{ patrimonio.nsg }}</b-dropdown-item>
                     </b-nav-item-dropdown>
                 </b-navbar-nav>
             </b-collapse>
@@ -46,6 +45,9 @@ export default {
                 }
             }
             return routes
+        },
+        patrimoni: function() {
+            return this.$store.state.patrimoni;
         }
     }
 }

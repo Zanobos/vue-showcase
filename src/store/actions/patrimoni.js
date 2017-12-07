@@ -47,5 +47,9 @@ export function fetchPatrimoni({commit}) {
 //    setTimeout(() => {
 //        commit('fetchPatrimoni',patrimoni)
 //    }, 0)
-    commit('fetchPatrimoni',patrimoni)
+    commit('fetchPatrimoni', patrimoni)
+}
+
+export function cambiaPatrimonio({commit}, nsgSelezionato) {
+    commit('cambiaPatrimonio', nsgSelezionato)
 }
