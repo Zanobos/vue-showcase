@@ -13,9 +13,6 @@
             </template>
         </b-table>
     </div>
-</b-table>
-
-
 </template>
 
 <script>

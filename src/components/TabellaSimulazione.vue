@@ -30,8 +30,6 @@
             Sort By: {{ sortBy || 'n/a' }}, Direction: {{ sortDesc ? 'descending' : 'ascending' }}
         </p>
     </div>
-</b-table>
-
 
 </template>
 
