@@ -20,7 +20,7 @@
                         <template slot="button-content">
                             <em>User</em>
                         </template>
-                        <b-dropdown-item v-for="patrimonio in patrimoni" :key="patrimonio.nsg" href="#">{{ patrimonio.nsg }}</b-dropdown-item>
+                        <b-dropdown-item v-for="patrimonio in patrimoni" :key="patrimonio.nsg" href="#" v-on:click="cambiaPatrimonio(patrimonio.nsg)">{{ patrimonio.nsg }}</b-dropdown-item>
                     </b-nav-item-dropdown>
                 </b-navbar-nav>
             </b-collapse>
@@ -48,6 +48,11 @@ export default {
         },
         patrimoni: function() {
             return this.$store.state.patrimoni;
+        }
+    },
+    methods: {
+        cambiaPatrimonio: function(nsgPatrimonioSelezionato) {
+            this.$store.commit('cambiaPatrimonio',nsgPatrimonioSelezionato);
         }
     }
 }
