@@ -21,7 +21,6 @@ export default {
             const data = Object.assign({});
             this.$set(data,"labels",this.evoluzionePortafoglio.labels);
             this.$set(data,"datasets", this.evoluzionePortafoglio.datasets.map(a => Object.assign({}, a)));
-            console.log(data)
             return data;
         }
     }
