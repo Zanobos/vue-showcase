@@ -1,7 +1,7 @@
 <template>
     <div>
         <indicatore-evoluzione-portafoglio :evoluzionePortafoglio="evoluzionePortafoglio" class="mt-3"/>
-        <profilatura-cliente :cliente="patrimonio" class="mt-3"/>
+        <profilatura-cliente :cliente="patrimonioSelezionato" class="mt-3"/>
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
         }
     },
     computed: {
-        patrimonio() {
+        patrimonioSelezionato: function() {
             return this.$store.getters.patrimonioSelezionato;
         }  
     }

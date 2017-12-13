@@ -16,12 +16,18 @@
                 <b-navbar-nav class="ml-auto">
 
                     <b-nav-item-dropdown right>
-                        <!-- Using button-content slot -->
                         <template slot="button-content">
-                            <em>User</em>
+                            {{ patrimonioSelezionato.anagrafica }}
+                            <!-- <div>NSG: {{ patrimonioSelezionato.nsg }}</div> -->
                         </template>
-                        <b-dropdown-item v-for="patrimonio in patrimoni" :key="patrimonio.nsg" href="#" v-on:click="cambiaPatrimonio(patrimonio.nsg)">{{ patrimonio.nsg }}</b-dropdown-item>
+                        <b-dropdown-item 
+                            v-for="patrimonio in patrimoni" :key="patrimonio.nsg" href="#" 
+                            v-on:click="cambiaPatrimonio(patrimonio.nsg)" v-bind:active="isPatrimonioSelezionato(patrimonio.nsg)">
+                            <div>{{ patrimonio.anagrafica }}</div>
+                            <div>NSG: {{ patrimonio.nsg }}</div>
+                        </b-dropdown-item>
                     </b-nav-item-dropdown>
+
                 </b-navbar-nav>
             </b-collapse>
         </b-navbar>
@@ -48,11 +54,17 @@ export default {
         },
         patrimoni: function() {
             return this.$store.state.patrimoni;
-        }
+        },
+        patrimonioSelezionato: function() {
+            return this.$store.getters.patrimonioSelezionato;
+        } 
     },
     methods: {
         cambiaPatrimonio: function(nsgPatrimonioSelezionato) {
             this.$store.commit('cambiaPatrimonio',nsgPatrimonioSelezionato);
+        },
+        isPatrimonioSelezionato: function(nsgPatrimonio) {
+            return nsgPatrimonio === this.patrimonioSelezionato.nsg ? true : false;
         }
     }
 }
