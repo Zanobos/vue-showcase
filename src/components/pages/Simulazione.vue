@@ -24,11 +24,6 @@ export default {
     components: {
         IndicatoreEvoluzionePortafoglio
     },
-    data () {
-        return {
-            evoluzionePortafoglio: evoluzionePortafoglio
-        }
-    },
     computed: {
         subRoutes: function() {
             var subRoutes = []
