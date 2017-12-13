@@ -8,11 +8,13 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         patrimoni: null,
-        nsgPatrimonioSelezionato: "38659947224"
+        nsgPatrimonioSelezionato: null
     },
     mutations: {
         fetchPatrimoni(state, payload) {
             state.patrimoni = payload;
+            //di default seleziono il primo
+            state.nsgPatrimonioSelezionato = state.patrimoni[0].nsg;
         },
         cambiaPatrimonio(state, payload){
             state.nsgPatrimonioSelezionato = payload;
