@@ -18,7 +18,7 @@ export default {
     computed: {
         patrimonioSelezionato: function() {
             return this.$store.getters.patrimonioSelezionato;
-        }  
+        }
     }
 }
 </script>

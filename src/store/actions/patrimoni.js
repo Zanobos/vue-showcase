@@ -30,7 +30,7 @@ export function fetchPatrimoni({commit}) {
                 datasets: [
                     {
                         label: 'Evoluzione Portafoglio',
-                        backgroundColor: '#f3f3f3',
+                        backgroundColor: '#cccccc',
                         pointBackgroundColor: 'white',
                         borderWidth: 1,
                         pointBorderColor: '#249EBF',

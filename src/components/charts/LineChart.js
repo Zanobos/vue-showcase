@@ -1,9 +1,10 @@
 //Importing Line class from the vue-chartjs wrapper
-import { Line } from 'vue-chartjs'
+import { Line, mixins } from 'vue-chartjs'
 //Exporting this so it can be used in other components
 export default{ 
   extends: Line,
-  props: ['data'],
+  mixins: [mixins.reactiveProp],
+  props: [],
   data () {
     return {
       //Chart.js options that controls the appearance of the chart
@@ -33,6 +34,6 @@ export default{
   },
   mounted () {
   //renderChart function renders the chart with the datacollection and options object.
-    this.renderChart(this.data, this.options)
+    this.renderChart(this.chartData, this.options)
   }
 }
