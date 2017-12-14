@@ -26,9 +26,9 @@
             </template>
         </b-table>
 
-        <p>
+        <!-- <p>
             Sort By: {{ sortBy || 'n/a' }}, Direction: {{ sortDesc ? 'descending' : 'ascending' }}
-        </p>
+        </p> -->
     </div>
 
 </template>
@@ -46,8 +46,8 @@ export default {
                 descrizione:      { label: 'Descrizione', sortable: true, thClass:'table-header',  class:['text-left', 'ws-nowrap', 'table-border']},
                 rischio:          { label: 'Rischio', sortable: true, thClass:'table-header', class: ['table-border']},
                 ctvIniziale:      { label: 'CTV Iniziale', sortable: true, formatter: 'formatCtv', thClass:'table-header', tdClass:['text-right'], class: ['ws-nowrap','table-border']},
-                acquista:         { label: 'Acquista', thClass:'table-header', class: ['table-border'] },
-                vendi:            { label: 'Vendi', thClass:'table-header', class: ['table-border'] },
+                acquista:         { label: 'Acquista', thClass:'table-header', class: ['table-border'], tdClass:['input-cell'] },
+                vendi:            { label: 'Vendi', thClass:'table-header', class: ['table-border'], tdClass:['input-cell'] },
                 ctvFinale:        { label: 'CTV Finale', formatter: 'calcolaCtvFinale', thClass:'table-header', tdClass:['text-right'], class: ['ws-nowrap','table-border']}
             },
             sortBy: null,
@@ -100,11 +100,20 @@ export default {
 }
 .table-input {
     border-radius: 0;
+    border: none;
+    outline: none;
+    height: 47px;
+}
+.table-input:focus {
+    box-shadow: none;
 }
 .table-border {
     border: 1px solid #ccc;
 }
 .ws-nowrap {
     white-space: nowrap;
+}
+.table .input-cell {
+     padding: 0;
 }
 </style>
