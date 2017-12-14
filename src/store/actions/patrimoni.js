@@ -38,7 +38,81 @@ export function fetchPatrimoni({commit}) {
                         data: [14000, 13020, 15030, 16050, 17790, 18110, 17920, 16440, 18950, 19270, 20190, 21100]
                     }
                 ]
-            }
+            },
+            posizioniSimulazioneManuale: [
+                {
+                    codice: 'SPESA',
+                    titolo: 'Spesa',
+                    posizioni: [
+                        {   
+                            codiceProdotto: '-',
+                            descrizione: 'CONTO CORRENTE',
+                            rischio: '-',
+                            ctvIniziale: 1500.0,
+                            acquista: null,
+                            vendi: null,
+                            ctvFinale: null
+                        }
+                    ]
+                },
+                {
+                    codice: 'OBI10',
+                    titolo: 'Riserva',
+                    posizioni: [
+                        {   
+                            codiceProdotto: '-',
+                            descrizione: 'CONTO CORRENTE',
+                            rischio: '-',
+                            ctvIniziale: 25000.45,
+                            acquista: null,
+                            vendi: null,
+                            ctvFinale: null
+                        },
+                        {   
+                            codiceProdotto: 'IT6892341',
+                            descrizione: 'BTP 12/56 M-ITA',
+                            rischio: '2.5',
+                            ctvIniziale: 4003.23,
+                            acquista: null,
+                            vendi: null,
+                            ctvFinale: null
+                        }
+                    ]
+                },
+                {
+                    codice: 'OBI20',
+                    titolo: 'Investimento',
+                    posizioni: [
+                        {   
+                            codiceProdotto: 'IT3248822',
+                            descrizione: 'ENEL',
+                            rischio: '9.12',
+                            ctvIniziale: 13259.14,
+                            acquista: null,
+                            vendi: null,
+                            ctvFinale: null
+                        },
+                        {  
+                            codiceProdotto: 'NL123999',
+                            descrizione: 'CED ATTIVA PIU',
+                            rischio: '4.5',
+                            ctvIniziale: 20091.62,
+                            acquista: null,
+                            vendi: null,
+                            ctvFinale: null
+                        },
+                        {   
+                            codiceProdotto: 'XYZ234922',
+                            descrizione: 'ISP PROSPETTIVA',
+                            rischio: '1.2',
+                            ctvIniziale: 150091.4,
+                            acquista: null,
+                            vendi: null,
+                            ctvFinale: null
+                        }
+                    ]
+                }
+            ]
         },
         {
             anagrafica: "Marco Blu",
@@ -69,7 +143,63 @@ export function fetchPatrimoni({commit}) {
                         data: [8000, 9520, 15030, 6050, 17790, 21410, 19920, 16440, 16950, 15870, 20190, 20900]
                     }
                 ]
-            }
+            },
+            posizioniSimulazioneManuale: [
+                {
+                    codice: 'SPESA',
+                    titolo: 'Spesa',
+                    posizioni: [
+                        {   
+                            codiceProdotto: '-',
+                            descrizione: 'CONTO CORRENTE',
+                            rischio: '-',
+                            ctvIniziale: 2000.0,
+                            acquista: null,
+                            vendi: null,
+                            ctvFinale: null
+                        }
+                    ]
+                },
+                {
+                    codice: 'OBI10',
+                    titolo: 'Riserva',
+                    posizioni: [
+                        {   
+                            codiceProdotto: '-',
+                            descrizione: 'CONTO CORRENTE',
+                            rischio: '-',
+                            ctvIniziale: 13000.45,
+                            acquista: null,
+                            vendi: null,
+                            ctvFinale: null
+                        }
+                    ]
+                },
+                {
+                    codice: 'OBI20',
+                    titolo: 'Investimento',
+                    posizioni: [
+                        {   
+                            codiceProdotto: 'IT3248822',
+                            descrizione: 'ENEL',
+                            rischio: '9.12',
+                            ctvIniziale: 2859.14,
+                            acquista: null,
+                            vendi: null,
+                            ctvFinale: null
+                        },
+                        {  
+                            codiceProdotto: 'NL123999',
+                            descrizione: 'CED ATTIVA PIU',
+                            rischio: '4.5',
+                            ctvIniziale: 320091.62,
+                            acquista: null,
+                            vendi: null,
+                            ctvFinale: null
+                        }
+                    ]
+                }
+            ]
         }
     ];
 //    setTimeout(() => {
