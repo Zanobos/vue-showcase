@@ -7,12 +7,13 @@
             :title="gruppo.titolo">  
         </tabella-simulazione>
 
-        <div><strong>Totale Patrimonio </strong>{{totalePatrimonio}}</div>
+        <div class="mb-4" ><strong>Totale Patrimonio {{totalePatrimonioSelezionatoSimulato}} </strong> </div>
     </div>
 </template>
 
 <script>
 import TabellaSimulazione from '@/components/TabellaSimulazione.vue'
+import currency from "@/components/filters/currency"
 
 export default {
     name: 'PercorsoManuale',
@@ -23,8 +24,8 @@ export default {
         patrimonioSelezionato: function() {
             return this.$store.getters.patrimonioSelezionato;
         },
-        totalePatrimonio: function() {
-            return 0;
+        totalePatrimonioSelezionatoSimulato: function() {
+            return currency(this.$store.getters.totalePatrimonioSelezionatoSimulato);
         }
     }
 }

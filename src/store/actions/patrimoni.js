@@ -51,7 +51,7 @@ export function fetchPatrimoni({commit}) {
                             ctvIniziale: 1500.0,
                             acquista: null,
                             vendi: null,
-                            ctvFinale: null
+                            ctvFinale: 1500.0
                         }
                     ]
                 },
@@ -66,7 +66,7 @@ export function fetchPatrimoni({commit}) {
                             ctvIniziale: 25000.45,
                             acquista: null,
                             vendi: null,
-                            ctvFinale: null
+                            ctvFinale: 25000.45
                         },
                         {   
                             codiceProdotto: 'IT6892341',
@@ -75,7 +75,7 @@ export function fetchPatrimoni({commit}) {
                             ctvIniziale: 4003.23,
                             acquista: null,
                             vendi: null,
-                            ctvFinale: null
+                            ctvFinale: 4003.23
                         }
                     ]
                 },
@@ -90,7 +90,7 @@ export function fetchPatrimoni({commit}) {
                             ctvIniziale: 13259.14,
                             acquista: null,
                             vendi: null,
-                            ctvFinale: null
+                            ctvFinale: 13259.14
                         },
                         {  
                             codiceProdotto: 'NL123999',
@@ -99,7 +99,7 @@ export function fetchPatrimoni({commit}) {
                             ctvIniziale: 20091.62,
                             acquista: null,
                             vendi: null,
-                            ctvFinale: null
+                            ctvFinale: 20091.62
                         },
                         {   
                             codiceProdotto: 'XYZ234922',
@@ -108,7 +108,7 @@ export function fetchPatrimoni({commit}) {
                             ctvIniziale: 150091.4,
                             acquista: null,
                             vendi: null,
-                            ctvFinale: null
+                            ctvFinale: 150091.4
                         }
                     ]
                 }
@@ -156,7 +156,7 @@ export function fetchPatrimoni({commit}) {
                             ctvIniziale: 2000.0,
                             acquista: null,
                             vendi: null,
-                            ctvFinale: null
+                            ctvFinale: 2000.0
                         }
                     ]
                 },
@@ -171,7 +171,7 @@ export function fetchPatrimoni({commit}) {
                             ctvIniziale: 13000.45,
                             acquista: null,
                             vendi: null,
-                            ctvFinale: null
+                            ctvFinale: 13000.45
                         }
                     ]
                 },
@@ -186,7 +186,7 @@ export function fetchPatrimoni({commit}) {
                             ctvIniziale: 2859.14,
                             acquista: null,
                             vendi: null,
-                            ctvFinale: null
+                            ctvFinale: 2859.14
                         },
                         {  
                             codiceProdotto: 'NL123999',
@@ -195,7 +195,7 @@ export function fetchPatrimoni({commit}) {
                             ctvIniziale: 320091.62,
                             acquista: null,
                             vendi: null,
-                            ctvFinale: null
+                            ctvFinale: 320091.62
                         }
                     ]
                 }
