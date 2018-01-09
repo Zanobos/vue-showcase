@@ -2,7 +2,7 @@
     <div>
         <indicatore-evoluzione-portafoglio :evoluzionePortafoglio="patrimonioSelezionato.evoluzionePortafoglio" class="mt-3"/>
 
-        <b-nav justified pills class="mt-3">
+        <b-nav justified pills class="mt-3" id="nav-simulazione">
             <b-nav-item 
                 v-for="subRoute in subRoutes" :key="subRoute.name" :to="subRoute" 
             >
@@ -50,3 +50,9 @@ export default {
     }
 }
 </script>
+
+<style>
+#nav-simulazione {
+    font-size: x-large;
+}
+</style>

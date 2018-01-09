@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- title -->
-        <h2>{{title}}</h2>
+        <h4>{{title}}</h4>
         <!-- Main table element -->
         <b-table hover show-empty
                 :items="items"
